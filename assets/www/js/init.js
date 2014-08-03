@@ -7,19 +7,19 @@ var options ={
 var app = {
     init: function () {
         var w = window.innerWidth;
-        var h = window.innerHeight;
+        var h = $(window).height();
         //alert(h)
-       /* document.getElementById('map').style.height = h + 'px';
-        document.getElementById('map').style.width = '100%';*/
-        document.body.style.height = h + 'px';
-        document.getElementById('map').style.height = h + 'px';
+        /* document.getElementById('map').style.height = h + 'px';
+         document.getElementById('map').style.width = '100%';*/
+        // document.body.style.height = h + 'px';
+        //document.getElementById('map').style.height = h + 'px';
         document.getElementsByClassName('main')[0].style.height = h + 'px';
         this.initMap();
         /*document.addEventListener("deviceready", onDeviceReady, false);
          function onDeviceReady(){
          alert('ready')
          }*/
-       // this.addMarker([50.43, 30.5])
+        // this.addMarker([50.43, 30.5])
         this.getPoints()
 
     },
@@ -49,8 +49,8 @@ var app = {
             elLatLng.html(getLatLngMap())
         }
        function getLatLngMap(){
-           return 'Lat: '+f(map.getCenter().lat).toFixed(5) + "   Lng:"+
-               f(map.getCenter().lng).toFixed(5);
+           return '<nobr>Lat: '+f(map.getCenter().lat).toFixed(5) + "   Lng:"+
+               f(map.getCenter().lng).toFixed(5)+'</nobr>';
        }
         function setZoom(){
             elZoom.html(getZoom())
@@ -60,7 +60,30 @@ var app = {
         }
     },
     getPoints: function(){
-        points = {
+        var s = this;
+        $.ajax({
+            method: 'post',
+            data:{
+                login: 'admin!',
+                pass: '1111'
+            },
+           // url: 'php/getpoints.php',
+            url: 'http://178.62.44.54/php/getpoints.php',
+            success: function(d){
+                try{
+                  points = JSON.parse(d);
+                    s.addPoitsToMap()
+                }catch (err){
+                    console.log(err)
+                }
+                console.log(points)
+            },
+            error: function(d){
+                console.log(d)
+            }
+        })
+
+       /* points = {
             1111:{
                 lat: 50.43,
                 lng: 30.5,
@@ -68,8 +91,8 @@ var app = {
                 satellites: 7,
                 speed: 0
             }
-        }
-     this.addPoitsToMap()
+        }*/
+     //this.addPoitsToMap()
     },
     formatingPoints: function(){
 
@@ -77,14 +100,13 @@ var app = {
          // points[opt]._date =
 
       }
-
     },
     addPoitsToMap: function(){
+        showParams.setList(points);
         for(var opt in points){
             var point = points[opt]
-            this.addMarker([f(point.lat), f(point.lng)])
+            this.addMarker([f(point.lat), f(point.lng)]);
         }
-
     },
     addMarker: function(latLng){
         var myIcon = L.divIcon({

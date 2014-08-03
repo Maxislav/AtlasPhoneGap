@@ -17,10 +17,22 @@
 
     <div class="header">
         <div class="name-object">
-            ..
+
         </div>
         <div class="params-object">
-            ..
+            <div class="list-obj">
+
+            </div>
+            <div class="params">
+                <div class="lat"></div>
+                <div class="lng"></div>
+                <div class="date"></div>
+            </div>
+            <div class="params">
+                <div class="speed"></div>
+                <div class="azimuth"></div>
+
+            </div>
         </div>
     </div>
     <div id="map"></div>
@@ -37,14 +49,17 @@
 </div>
 
 <!--Раскоментировать при скидывании в андроид-->
-<!--<script type="text/javascript" src="cordova.js"></script>-->
+<script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="lib/leaflet-0.7.3/leaflet.js"></script>
 <script type="text/javascript" src="lib/jquery/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="lib/jquery/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery-dateFormat.min.js"></script>
+<script type="text/javascript" src="js/showParam.js"></script>
+<script type="text/javascript" src="js/format.js"></script>
 <script type="text/javascript" src="js/canva.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript">
-       app.init()
+    app.init()
 </script>
 
 
