@@ -68,6 +68,11 @@ var app = {
 	},
 	getPoints: function () {
 		var s = this;
+		setInterval(
+			function(){
+				format.elapsed()
+			}
+			,1000)
 		$.ajax({
 			method: 'post',
 			data: {
@@ -83,7 +88,8 @@ var app = {
 					console.log(err)
 				}
 				s.comparison(p);
-				console.log(p)
+				console.log(p);
+
 			},
 			error: function (d) {
 				console.log(d)
@@ -119,8 +125,13 @@ var app = {
 					points[opt][_parm] = p[opt][_parm];
 
 				}
-				s.addPoitsToMap(points[opt])
+				s.addPoitsToMap(points[opt]);
+				if(showParams.currentPoint == opt){
+					showParams.setParams(points[opt])
+				}
+
 			}
+
 		}
 		setTimeout(function () {
 				s.getPoints()
@@ -134,13 +145,7 @@ var app = {
 		 }*/
 
 	},
-	formatingPoints: function () {
 
-		for (var opt in points) {
-			// points[opt]._date =
-
-		}
-	},
 	addPoitsToMap: function (point) {
 		this.addBlinkMarker([f(point.lat), f(point.lng)]);
 		this.addStatMarker([f(point.lat), f(point.lng)], point);

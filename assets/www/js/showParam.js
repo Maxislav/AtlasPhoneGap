@@ -10,20 +10,20 @@ var showParams = {
     elName: $('.header .name'),
     elListObj: $('.header .list-obj'),
     elCurentName: $('.header .name-object'),
-
+	elTimePassed: $('.header .time-passed'),
     setParams: function(_param){
 		var s = this;
 
 		var param = points[_param.imei]
 		s.currentPoint = param.imei
-		map.panTo([f(param.lat), f(param.lng)]);
-		app.addBlinkMarker([f(param.lat), f(param.lng)])
+
+
 		s.elLat.html('Lat: '+param.lat)
 		s.elLng.html('Lng: '+param.lng)
 		s.elDate.html('D: '+format.dateDecode(param.datetime))
 		s.elTime.html('T: '+format.timeDecode(param.datetime));
-		s.elSpeed.html('S: '+param.speed + ' km/h');
-		s.elPower.html('P: '+param.zaryad );
+		s.elSpeed.html('Speed: '+param.speed + ' km/h');
+		s.elPower.html('Power: '+param.zaryad );
 
     },
     setList: function(points){
@@ -38,6 +38,8 @@ var showParams = {
         function listiner(el, param){
             el.click(function(){
 				s.setParams(param)
+				map.panTo([f(param.lat), f(param.lng)]);
+				app.addBlinkMarker([f(param.lat), f(param.lng)])
             })
         }
 
@@ -51,6 +53,9 @@ var showParams = {
             }
         }
 
-    }
+    },
+	setElapsedTime: function(val){
+		this.elTimePassed.html(val)
+	}
 
 }

@@ -20,7 +20,7 @@ var canva = {
                     radius = 0;
                     c++
                 }
-                if (c < 10) {
+                if (c < 2) {
                     clear();
                     draw(radius);
                     time()
