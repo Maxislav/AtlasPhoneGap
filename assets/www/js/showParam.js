@@ -1,14 +1,29 @@
 var showParams = {
+	currentPoint: null,
     elLat: $('.header .lat'),
     elLng: $('.header .lng'),
     elSpeed: $('.header .speed'),
     elDate: $('.header .date'),
+	elTime: $('.header .time'),
+	elPower:$('.header .power'),
     elAzimuth: $('.header .azimuth'),
     elName: $('.header .name'),
     elListObj: $('.header .list-obj'),
     elCurentName: $('.header .name-object'),
 
-    setParams: function(point){
+    setParams: function(_param){
+		var s = this;
+
+		var param = points[_param.imei]
+		s.currentPoint = param.imei
+		map.panTo([f(param.lat), f(param.lng)]);
+		app.addBlinkMarker([f(param.lat), f(param.lng)])
+		s.elLat.html('Lat: '+param.lat)
+		s.elLng.html('Lng: '+param.lng)
+		s.elDate.html('D: '+format.dateDecode(param.datetime))
+		s.elTime.html('T: '+format.timeDecode(param.datetime));
+		s.elSpeed.html('S: '+param.speed + ' km/h');
+		s.elPower.html('P: '+param.zaryad );
 
     },
     setList: function(points){
@@ -22,11 +37,7 @@ var showParams = {
 
         function listiner(el, param){
             el.click(function(){
-                //s.elCurentName.html(param.name)
-                map.panTo([f(param.lat), f(param.lng)]);
-                s.elLat.html('Lat: '+param.lat)
-                s.elLng.html('Lng: '+param.lng)
-                s.elDate.html('Date: '+format.dateDecode(param.datetime))
+				s.setParams(param)
             })
         }
 

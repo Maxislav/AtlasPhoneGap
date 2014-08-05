@@ -15,9 +15,7 @@
 <body>
 <div class="main">
     <div class="header">
-        <div class="button-vhide">
 
-        </div>
         <div class="vhide-panel">
             <div class="params-object">
                 <div class="list-obj">
@@ -27,15 +25,21 @@
                     <div class="lat"></div>
                     <div class="lng"></div>
                     <div class="speed"></div>
-
+                    <div class="power"></div>
                 </div>
                 <div class="params">
                     <div class="date"></div>
                     <div class="time"></div>
                     <div class="time-passed"></div>
+
                 </div>
             </div>
 
+        </div>
+        <div class="button-vhide">
+            <div class="arrow">
+
+            </div>
         </div>
 
 
@@ -54,7 +58,6 @@
 </div>
 
 <!--Раскоментировать при скидывании в андроид-->
-<!--<script type="text/javascript" src="cordova.js"></script>-->
 <script type="text/javascript" src="lib/leaflet-0.7.3/leaflet.js"></script>
 <script type="text/javascript" src="lib/jquery/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="lib/jquery/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
@@ -65,10 +68,12 @@
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript">
     var config = {
-       // url:'http://178.62.44.54/php/getpoints.php',
-        url:  'php/getpoints.php',
-        login: 'demo',
-        pass: 'demo'
+        url:'http://178.62.44.54/php/getpoints.php',
+        login: 'admin!',
+        pass: '1111'
+//        url: 'php/getpoints.php',
+//        login: 'demo',
+//        pass: 'demo'
     }
     app.init()
 </script>

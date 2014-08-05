@@ -1,6 +1,6 @@
 var canva = {
     point: null,
-    blink: function (_canvas) {
+    blink: function (_canvas, _marker) {
         var canvas = _canvas;
         canvas.width = 50;
         canvas.height = 50;
@@ -11,7 +11,7 @@ var canva = {
         time();
         var c = 0;
 
-        var timeOut
+
 
         function time() {
             setTimeout(function () {
@@ -26,10 +26,10 @@ var canva = {
                     time()
                 } else {
                     clear();
-                   // map.removeLayer(marker)
+					$(_marker._icon).fadeTo(222,0,function(){
+						map.removeLayer(_marker)
+					})
                 }
-
-
             }, 30)
         }
 
@@ -43,15 +43,31 @@ var canva = {
             context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
             var grd = context.createRadialGradient(centerX, centerY, 5, centerX, centerY, radius);
             // light blue
-            grd.addColorStop(0, 'rgba(255,0,255,' + (25 - radius) / (radius + 25) + ')');
+            grd.addColorStop(0, 'rgba(255,0,255, 0');
             //grd.addColorStop(0.1, 'rgba(255,0,0,' + (25 - radius) / (radius + 25) + ')');
             // dark blue
             grd.addColorStop(1, 'rgba(0,0,255,' + (25 - radius) / (radius + 25) + ')');
             context.fillStyle = grd;
             context.fill();
+
+
+			context.save();
+			context.globalCompositeOperation = 'destination-out';
+			context.beginPath();
+			context.arc(centerX, centerY, 8, 0, 2 * Math.PI, false);
+			context.fill();
+			context.restore();
+
+		/*	context.clip();
+			context.clearRect(centerX - 8 - 1, centerY - 8 - 1, 8 * 2 + 2, 8 * 2 + 2);*/
+
+			/*context.globalCompositeOperation = 'destination-out'
+			context.arc(centerX, centerY, 1, 0, Math.PI*2, true);
+			context.fill();*/
         }
     },
     stat: function(marker){
+
         var canvas = marker._icon.getElementsByTagName('canvas')[0];
         var radius = 8;
         canvas.width = 50;
