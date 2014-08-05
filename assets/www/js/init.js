@@ -19,7 +19,13 @@ var app = {
          function onDeviceReady(){
          alert('ready')
          }*/
-        // this.addMarker([50.43, 30.5])
+        // this.addMarker([50.43, 30.5]);
+
+
+        $('.vhide-panel').hide();
+        $('.button-vhide').on('click', function(){
+            $('.vhide-panel').slideToggle()
+        })
         this.getPoints()
 
     },
@@ -64,11 +70,10 @@ var app = {
         $.ajax({
             method: 'post',
             data:{
-                login: 'admin!',
-                pass: '1111'
+                login: config.login,
+                pass: config.pass
             },
-           // url: 'php/getpoints.php',
-            url: 'http://178.62.44.54/php/getpoints.php',
+            url: config.url,
             success: function(d){
                 try{
                   points = JSON.parse(d);
@@ -102,7 +107,7 @@ var app = {
       }
     },
     addPoitsToMap: function(){
-        showParams.setList(points);
+       // showParams.setList(points);
         for(var opt in points){
             var point = points[opt]
             this.addMarker([f(point.lat), f(point.lng)]);
