@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+
+    <link rel="stylesheet" type="text/css" href="lib/leaflet-0.7.3/leaflet.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/jquery/jquery-ui-1.11.0.custom/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="build/index.css"/>
+
+    <title>AsGuard</title>
+</head>
+<body>
+<div class="main">
+
+
+
+    <div class="opt">
+        <table>
+            <tr>
+                <td class="name-parm">
+                    URL:
+                </td>
+                <td>
+                    <input type="text" name="url">
+                </td>
+            </tr>
+            <tr>
+                <td class="name-parm">
+                    Login:
+                </td>
+                <td>
+                    <input type="text" name="login">
+                </td>
+            <tr>
+                <td class="name-parm">
+                    Pass:
+                </td>
+                <td>
+                    <input type="text" name="pass">
+                </td>
+            </tr>
+            </tr>
+
+        </table>
+        <div class="sprite-buttons">
+            <div class="button yellow" name = "save">
+                Save
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="header">
+        <div class="vhide-panel">
+            <div class="params-object">
+                <div class="list-obj">
+
+                </div>
+                <div class="params1">
+                    <div class="lat"></div>
+                    <div class="lng"></div>
+                    <div class="speed"></div>
+                    <div class="power"></div>
+                </div>
+                <div class="params2">
+                    <div class="date"></div>
+                    <div class="time"></div>
+                    <div class="time-passed"></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="button-vhide">
+            <div class="arrow">
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="map"></div>
+
+    <div class="footer">
+        <div class="param">
+            <div class="latLng">
+                ...
+            </div>
+            <div class="zoom">
+                ...
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<!--Раскоментировать при скидывании в андроид-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="lib/leaflet-0.7.3/leaflet.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery-dateFormat.min.js"></script>
+<script type="text/javascript" src="js/showParam.js"></script>
+<script type="text/javascript" src="js/format.js"></script>
+<script type="text/javascript" src="js/canva.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript">
+    var config = {
+        /* url:'http://178.62.44.54/php/getpoints.php',
+         login: 'admin!',
+         pass: '1111' */
+//        url: 'php/getpoints.php',
+//        login: 'demo',
+//        pass: 'demo'
+        url: '',
+        login: '',
+        pass: ''
+    }
+    app.init()
+</script>
+
+
+</body>
+</html>
