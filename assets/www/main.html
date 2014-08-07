@@ -46,8 +46,11 @@
 
         </table>
         <div class="sprite-buttons">
-            <div class="button yellow" name = "save">
+            <div class="button green" name = "save">
                 Save
+            </div>
+            <div class="button blue" name = "hide">
+                Hide
             </div>
         </div>
 
@@ -114,7 +117,7 @@
 </div>
 
 <!--Раскоментировать при скидывании в андроид-->
-<script type="text/javascript" src="cordova.js"></script>
+<!--<script type="text/javascript" src="cordova.js"></script>-->
 <script type="text/javascript" src="lib/leaflet-0.7.3/leaflet.js"></script>
 <script type="text/javascript" src="lib/jquery/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="lib/jquery/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
@@ -124,18 +127,23 @@
 <script type="text/javascript" src="js/canva.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript">
+    document.ontouchmove = function(e) {
+        e.preventDefault();
+    }
     var config = {
         /* url:'http://178.62.44.54/php/getpoints.php',
          login: 'admin!',
          pass: '1111' */
-//        url: 'php/getpoints.php',
-//        login: 'demo',
-//        pass: 'demo'
-        url: '',
+        url: 'php/getpoints.php',
+        login: 'demo',
+        pass: 'demo'
+        /*url: '',
         login: '',
-        pass: ''
+        pass: ''*/
     }
-    app.init()
+    app.init();
+
+    app.getPoints();
 </script>
 
 

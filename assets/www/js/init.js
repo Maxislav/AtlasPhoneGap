@@ -113,6 +113,9 @@ var app = {
 			$('.opt').slideToggle({duration:200});
 		})
 
+		$('.opt').on('click','[name=hide]', function(){
+			$('.opt').slideToggle({duration:200});
+		})
 
 
 
