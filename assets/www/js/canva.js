@@ -43,8 +43,8 @@ var canva = {
             context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
             var grd = context.createRadialGradient(centerX, centerY, 5, centerX, centerY, radius);
             // light blue
-            grd.addColorStop(0, 'rgba(255,0,255, 0');
-            //grd.addColorStop(0.1, 'rgba(255,0,0,' + (25 - radius) / (radius + 25) + ')');
+            //grd.addColorStop(0, 'rgba(255,0,255, 0');
+            grd.addColorStop(0.1, 'rgba(255,0,0,' + (25 - radius) / (radius + 25) + ')');
             // dark blue
             grd.addColorStop(1, 'rgba(0,0,255,' + (25 - radius) / (radius + 25) + ')');
             context.fillStyle = grd;

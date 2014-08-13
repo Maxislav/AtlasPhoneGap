@@ -55,7 +55,8 @@ function querySuccess(tx,result){
 
 
 function errorCB(err) {
-	alert("Error processing SQL: "+err.code);
+	alert('Data base empty')
+	//alert("Error processing SQL: "+err.code);
 }
 
 //2. запрос к базе

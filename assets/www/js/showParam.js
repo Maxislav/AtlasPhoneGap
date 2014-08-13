@@ -11,6 +11,7 @@ var showParams = {
     elListObj: $('.header .list-obj'),
     elCurentName: $('.header .name-object'),
 	elTimePassed: $('.header .time-passed'),
+
     setParams: function(_param){
 		var s = this;
 
@@ -40,6 +41,10 @@ var showParams = {
 				s.setParams(param)
 				map.panTo([f(param.lat), f(param.lng)]);
 				app.addBlinkMarker([f(param.lat), f(param.lng)])
+
+				s.elListObj.children('div').removeClass('active')
+				el.addClass('active')
+
             })
         }
 

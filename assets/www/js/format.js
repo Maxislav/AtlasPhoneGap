@@ -33,7 +33,7 @@ var format ={
 			var mm = Math.floor(dif/60000)
 			var ss =Math.floor((dif - (mm * 60000))/1000)
 			if(showParams.currentPoint == opt){
-				showParams.setElapsedTime(mm + "min " + ss+'s')
+				showParams.setElapsedTime('A:'+mm + "min " + ss+'s')
 			}
 
 		}
