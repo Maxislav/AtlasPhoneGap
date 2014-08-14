@@ -54,6 +54,7 @@ function querySuccess(tx,result){
 }
 
 
+
 function errorCB(err) {
 	alert('Data base empty')
 	//alert("Error processing SQL: "+err.code);
