@@ -199,10 +199,10 @@ var app = {
 			if (!points[opt]) {
 				points[opt] = p[opt];
 				s.addPoitsToMap(points[opt]);
-				showParams.setList(p);
+				showParams.setList(points[opt]);
 			}
-
 		}
+
 
 		for (var opt in p) {
 			if (points[opt].datetime != p[opt].datetime) {

@@ -19,22 +19,27 @@ var showParams = {
 		s.currentPoint = param.imei
 
 
-		s.elLat.html('Lat: '+param.lat)
-		s.elLng.html('Lng: '+param.lng)
+		s.elLat.html('<nobr>'+'Lat: '+param.lat+'</nobr>')
+		s.elLng.html('<nobr>'+'Lng: '+param.lng+'</nobr>')
 		s.elDate.html('D: '+format.dateDecode(param.datetime))
 		s.elTime.html('T: '+format.timeDecode(param.datetime));
-		s.elSpeed.html('Speed: '+param.speed + ' km/h');
-		s.elPower.html('Power: '+param.zaryad );
+		s.elSpeed.html('<nobr>'+'Speed: '+param.speed + ' km/h'+'</nobr>');
+		s.elPower.html('<nobr>'+ 'Power: '+param.zaryad+'</nobr>' );
 
     },
     setList: function(points){
         var s = this;
-        for (var opt in points){
+
+		/*for (var opt in points){
           var elDiv = $(document.createElement('div'));
             elDiv.html(points[opt].name)
             s.elListObj.append(elDiv);
             listiner(elDiv, points[opt] )
-        }
+        }*/
+		var elDiv = $(document.createElement('div'));
+		elDiv.html(points.name)
+		s.elListObj.append(elDiv);
+		listiner(elDiv, points )
 
         function listiner(el, param){
             el.click(function(){
